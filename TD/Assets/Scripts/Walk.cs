@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class Walk : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-
-    private NavMeshAgent agent;
-
+    NavMeshAgent agent;
+    [SerializeField] Transform target;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
-        agent.SetDestination(target.position);
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         agent.SetDestination(target.position);
     }
